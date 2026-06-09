@@ -224,7 +224,6 @@ footer a{color:var(--gold-light);text-decoration:underline}
 <!-- ================= LOGIN VIEW ================= -->
 <div class="wrap">
   <section class="view active" id="loginView">
-    <div class="hero-eyebrow">Cultural Department</div>
     <h1 class="title gold-text">SPSMUN&nbsp;3.0</h1>
     <div class="subtitle">The Era of Impact · 2026</div>
     <p class="tagline">A decade of diplomacy. A future of change.</p>
@@ -251,12 +250,12 @@ footer a{color:var(--gold-light);text-decoration:underline}
       <!-- info card -->
       <div class="card info">
         <h3>About SPSMUN 3.0 · 2026</h3>
-        <p>SPSMUN is the Model United Nations conference hosted by <b>Satluj Public School, Sector 4, Panchkula</b>. After SPSMUN 2.0 brought together 3,000+ delegates across the world's committees, the third edition — <b>“The Era of Impact”</b> — returns in 2026, bigger and bolder.</p>
+        <p>SPSMUN is the Model United Nations conference hosted by <b>Satluj Public School, Sector 4, Panchkula</b>. After SPSMUN 2.0 brought together 500+ delegates across the world's committees, the third edition — <b>“The Era of Impact”</b> — returns in 2026, bigger and bolder.</p>
         <p>Delegates step into the role of diplomats, debating global issues, drafting resolutions and sharpening their public speaking, research and negotiation skills.</p>
         <div class="chips">
           <span class="chip">UNSC</span><span class="chip">UNGA</span><span class="chip">UNHRC</span>
           <span class="chip">UNCSW</span><span class="chip">WHO</span><span class="chip">AIPPM</span>
-          <span class="chip">DISEC</span><span class="chip">IP</span><span class="chip">IPL</span><span class="chip">WHO Beginners</span>
+          <span class="chip">Fame files</span><span class="chip">IP</span><span class="chip">IPL</span><span class="chip">WHO Beginners</span>
         </div>
         <div class="fees">
           <div class="fee"><div class="ph">Early Bird</div><div class="amt">₹2800</div></div>
