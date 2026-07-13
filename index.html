@@ -406,18 +406,17 @@ function renderProfile(d){
   const phone     = field(d,"Phone","Contact Numbers","Contact Number");
   const committee = field(d,"Committee");
   const portfolio = field(d,"Portfolio");
-  const teamCol   = field(d,"Team"); // optional dedicated Team column, if ever filled in
+  // Dedicated "Team" column in the sheet — only filled in for IPL delegates.
+  const teamCol   = field(d,"Team","Team-made","Team Made");
 
   const noSection = section==="" || section==="-" || section==="—";
   const classSection = noSection ? cls : (cls + (cls?" · ":"") + section);
 
   $("welcomeName").textContent = name || "Delegate";
 
-  // IPL delegates store their team name in the Portfolio column (e.g. "CSK", "MI"),
-  // so for them we label that row "Team" instead of "Portfolio".
+  // IPL delegates get BOTH a "Portfolio" row and a separate "Team" row
+  // (pulled from the dedicated Team column), shown one after the other.
   const isIPL = /\bipl\b/i.test(committee);
-  const portfolioLabel = isIPL ? "Team" : "Portfolio";
-  const portfolioValue = teamCol || portfolio; // prefer a dedicated Team column if it's ever filled in
 
   const rows = [];
   rows.push(["Name", name, "big"]);
@@ -425,7 +424,8 @@ function renderProfile(d){
   else          rows.push(["Class & Section", classSection, ""]);
   rows.push(["Phone Number", "+91 "+phone, ""]);
   rows.push(["Committee", committee, "big"]);
-  rows.push([portfolioLabel, portfolioValue, "big"]);
+  rows.push(["Portfolio", portfolio, "big"]);
+  if(isIPL && teamCol) rows.push(["Team", teamCol, "big"]);
 
   $("dossierRows").innerHTML = rows.map(([k,v,cls2])=>
     `<div class="frow"><div class="k">${esc(k)}</div><div class="v ${cls2}">${esc(v||"—")}</div></div>`
