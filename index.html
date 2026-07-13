@@ -340,7 +340,7 @@ footer a{color:var(--gold-light);text-decoration:underline}
    ⚙️  CONFIG — paste your deployed Apps Script Web App URL here
    It looks like: https://script.google.com/macros/s/AKfy.../exec
    ============================================================ */
-const API_URL = "https://script.google.com/macros/s/AKfycby7YXNY82xo-uDHrWkuiMi9prDvFIYmmXISaG61gd5ONBQuCvksbfNjH5GC11DoJXWR/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbwn1j9jneY2JZylwL3LOxDJDFzu-PL6sYBqGKmy5tB_Z1aESQNzB0rLrQs0JrmfU0Rx/exec";
 
 /* ---------- JSONP helper (no CORS, works on any host) ---------- */
 function api(params){
@@ -406,6 +406,7 @@ function renderProfile(d){
   const phone     = field(d,"Phone","Contact Numbers","Contact Number");
   const committee = field(d,"Committee");
   const portfolio = field(d,"Portfolio");
+  const team      = field(d,"Team");
 
   const noSection = section==="" || section==="-" || section==="—";
   const classSection = noSection ? cls : (cls + (cls?" · ":"") + section);
@@ -419,6 +420,12 @@ function renderProfile(d){
   rows.push(["Phone Number", "+91 "+phone, ""]);
   rows.push(["Committee", committee, "big"]);
   rows.push(["Portfolio", portfolio, "big"]);
+
+  // IPL delegates get an extra "Team" row — everyone else doesn't see this at all
+  const isIPL = /\bipl\b/i.test(committee);
+  if(isIPL && team){
+    rows.push(["Team", team, "big"]);
+  }
 
   $("dossierRows").innerHTML = rows.map(([k,v,cls2])=>
     `<div class="frow"><div class="k">${esc(k)}</div><div class="v ${cls2}">${esc(v||"—")}</div></div>`
